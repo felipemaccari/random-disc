@@ -1,5 +1,15 @@
 "use client";
 
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 
 import { discs } from "@/data/discs";
@@ -20,6 +30,8 @@ export default function Home() {
     const query = disc.description.split(" ").join("+");
 
     const url = `https://www.youtube.com/results?search_query=${query}`;
+
+    navigator.clipboard.writeText(disc.description);
 
     setSelectedDisc({ ...disc, url });
   };
@@ -51,6 +63,32 @@ export default function Home() {
               Clica aqui e ouve logo, para de enche o saco mermão
             </Link>
           </Button>
+
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button
+                variant="link"
+                onClick={() =>
+                  navigator.clipboard.writeText(selectedDisc.description)
+                }
+              >
+                Quer ouvir no spotify?
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>
+                  não tem como, va lá e pesquise :)
+                </AlertDialogTitle>
+                <AlertDialogDescription>
+                  mas pra te ajuda, o nome do album ta copiado no teu ctrl+c
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Obrigado por nada</AlertDialogCancel>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       )}
 
