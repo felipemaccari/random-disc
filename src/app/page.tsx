@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { discs } from "@/data/discs";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export default function Home() {
   const [selectedDisc, setSelectedDisc] = useState<{
@@ -34,6 +35,11 @@ export default function Home() {
     navigator.clipboard.writeText(disc.description);
 
     setSelectedDisc({ ...disc, url });
+
+    toast("O nome do disco ta no teu ctrl+c malandro 🤙", {
+      description:
+        "Cola lá no teu deezer (se tem alguem que usa isso ainda....(brincadeira deezer, patrocina o cafezin pra nois))",
+    });
   };
 
   return (
