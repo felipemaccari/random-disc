@@ -57,7 +57,6 @@ export default function Home() {
           Então toma vai, clica aqui
         </Button>
       </div>
-
       {selectedDisc.id !== "0" && (
         <div className="flex flex-col items-center">
           <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-32 text-center">
@@ -95,6 +94,19 @@ export default function Home() {
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
+
+          <div className="mt-6">
+            <p className="text-lg text-muted-foreground text-center">
+              {
+                '"ah mas de onde vem isso? pq nao tem milhonário e josé rico??????"'
+              }
+            </p>
+
+            <p className="text-lg text-muted-foreground text-center">
+              vem do livro 1001 Discos Para Ouvir Antes de Morrer, não gosto
+              reclama lá com eles
+            </p>
+          </div>
         </div>
       )}
 
